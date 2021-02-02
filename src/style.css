@@ -1,0 +1,72 @@
+a {
+  color: #212121;
+  text-decoration: none;
+}
+body {
+  /* background-color: #f8f1f1; */
+  color: #212121;
+  max-width: 600px;
+  margin: 0 auto;
+}
+button {
+  margin-top: 50px;
+}
+h1 {
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+}
+.button-container {
+  text-align: center;
+}
+.current-temperature {
+  color: #757575;
+}
+
+.current-weather-icon-temp {
+  text-align: right;
+}
+
+.current-weather-image i {
+  font-size: 100px;
+  color: #00796b;
+}
+.current-weather-row {
+  margin-top: 50px;
+}
+
+.future-temperature {
+  font-size: 15px;
+  text-align: center;
+  color: #757575;
+}
+
+.future-weather-image i {
+  font-size: 50px;
+  display: block;
+  margin: 0 auto;
+  color: #b2dfdb;
+}
+
+.search-card {
+  margin-top: 50px;
+}
+
+.search-button {
+  display: inline;
+}
+
+.search-bar {
+  display: inline;
+}
+
+.weather-app {
+  border: 1px solid #dadde1;
+  padding: 15px;
+  margin: 20px;
+  border-radius: 4px;
+}
