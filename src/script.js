@@ -18,10 +18,14 @@ function changeFahr() {
     }
 
 function displayWeather(response){
+    console.log(response.data)
     currentTemp = Math.round(response.data.main.temp);
     console.log(`${currentTemp}°C`);
     let temp = document.querySelector('#update-temp');
     temp.innerHTML = `${currentTemp}`;
+    let descriptionElement = document.querySelector('#description');
+    descriptionElement.innerHTML = capitalizeEachWord(response.data.weather[0].description);
+    setDateTime(response.data.dt * 1000);
 }
 
 function getWeather(city,units="metric"){
@@ -37,12 +41,11 @@ function searchCity(event) {
   let currentCity = document.querySelector("#city-name");
   currentCity.innerHTML = newCity;
 
-  setDate();
   getWeather(newCity);
 }
 
-function setTime(){
-    let date = new Date();
+function getDateTimeString(timestamp){
+    let date = new Date(timestamp);
 
     //get all the date time information
     let day = date.getDate();
@@ -68,9 +71,9 @@ function setTime(){
     return timeStr
 }
 
-function setDate(){
+function setDateTime(timestamp){
     let currentDate = document.querySelector("#current-date");
-    currentDate.innerHTML = setTime();
+    currentDate.innerHTML = getDateTimeString(timestamp);
 }
 
 let dayOfWeek = [
@@ -98,7 +101,7 @@ let monthofYear = [
 ];
 
 //set current date
-setDate();
+//setDate();
 
 //watch for search
 let city = document.querySelector("#search-form");
