@@ -25,7 +25,15 @@ function displayWeather(response){
     temp.innerHTML = `${currentTemp}`;
     let descriptionElement = document.querySelector('#description');
     descriptionElement.innerHTML = capitalizeEachWord(response.data.weather[0].description);
+
     setDateTime(response.data.dt * 1000);
+
+    //Move this into new function
+    let icon = response.data.weather[0].icon
+    let iconURL = `http://openweathermap.org/img/wn/${icon}@2x.png`
+    let currentWeatherIconElement = document.querySelector("#current-weather-icon")
+    currentWeatherIconElement.setAttribute("src", iconURL)
+    currentWeatherIconElement.setAttribute("alt", response.data.weather[0].description)
 }
 
 function getWeather(city,units="metric"){
@@ -40,7 +48,6 @@ function searchCity(event) {
   let newCity = capitalizeEachWord(input.value);
   let currentCity = document.querySelector("#city-name");
   currentCity.innerHTML = newCity;
-
   getWeather(newCity);
 }
 

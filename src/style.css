@@ -17,8 +17,8 @@ h1 {
 
 img {
   max-width: 100%;
-  display: block;
-  margin: 0 auto;
+  /* display: block;
+  margin: 0 auto; */
 }
 .button-container {
   text-align: center;
@@ -28,10 +28,14 @@ img {
   font-family: monospace;
 }
 
-.current-temperature {
+/* .current-temperature {
   color: #757575;
   margin-right: 10px;
   padding-left: 10px;
+} */
+
+.current-temp-number {
+  font-size: calc(1.375rem + 1.5vw);
 }
 
 .current-weather-icon-temp {
