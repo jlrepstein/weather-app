@@ -18,15 +18,26 @@ function changeFahr() {
     }
 
 function displayWeather(response){
-    console.log(response.data)
+    
+    console.log(response)
     currentTemp = Math.round(response.data.main.temp);
-    console.log(`${currentTemp}°C`);
+    // console.log(`${currentTemp}°C`);
     let temp = document.querySelector('#update-temp');
     temp.innerHTML = `${currentTemp}`;
     let descriptionElement = document.querySelector('#description');
     descriptionElement.innerHTML = capitalizeEachWord(response.data.weather[0].description);
 
     setDateTime(response.data.dt * 1000);
+
+    let humidity = document.querySelector('#humidity');
+    humidity.innerHTML = `${response.data.main.humidity}%`;
+
+    let wind = document.querySelector('#wind');
+    wind.innerHTML = `${response.data.wind.speed} Km/h`
+
+    let clouds = document.querySelector('#cloudCoverage')
+    clouds.innerHTML = `${response.data.clouds.all}%`
+
 
     //Move this into new function
     let icon = response.data.weather[0].icon
