@@ -19,17 +19,12 @@ img {
   /* display: block;
   margin: 0 auto; */
 }
-li {
-  display: inline;
-  padding-right: 5px;
-  text-align: center;
-}
 
 ul {
   list-style: none;
   padding-left: 0px;
-  display: inline;
-  text-align: center;
+  /* display: inline; */
+  /* text-align: center; */
 }
 
 .active {
@@ -47,6 +42,7 @@ ul {
 .coded-by {
   font-size: 14px;
   font-family: monospace;
+  margin: 20px;
 }
 
 /* .current-temperature {

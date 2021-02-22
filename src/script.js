@@ -69,9 +69,10 @@ function displayWeather(response){
     currentWeatherIconElement.setAttribute("alt", response.data.weather[0].description)
 }
 
-function getWeather(city,units="metric"){
+function getWeather(city, units="metric"){
     let apiKey = "d3f16bcc0a8b96aa710067cefafc5cfc";
     let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&&units=${units}`;
+    
     axios.get(apiURL).then(displayWeather);
 }
 
@@ -139,7 +140,6 @@ let monthofYear = [
   "November",
   "December"
 ];
-
 
 let celciusTemperature = null
 //set current date
