@@ -7,23 +7,45 @@ function capitalizeEachWord(word) {
     return words.join(' ');
 }
 
-function changeCelcius(){
-    let temp = document.querySelector("#update-temp");
-    temp.innerHTML = "7";
+function changeCelcius(event){
+    event.preventDefault();
+    let currentTemp = document.querySelector("#update-temp");
+
+    currentTemp.innerHTML = Math.round(celciusTemperature);
+
+    //remove the active class from celcius link
+    celciusLink.classList.add("active");
+
+    //add the active class to fahreinheight link
+    fahrenheightLink.classList.remove("active");
     } 
     
-function changeFahr() {
-    temp = document.querySelector("#update-temp");
-    temp.innerHTML = "66";
+function changeFahr(event) {
+    event.preventDefault();
+    let currentTemp = document.querySelector("#update-temp");
+
+    //remove the active class from celcius link
+    celciusLink.classList.remove("active");
+
+    //add the active class to fahreinheight link
+    fahrenheightLink.classList.add("active");
+
+    let fahreinhrightTemp = (celciusTemperature * 9.0)/5.0 + 32.0;
+    currentTemp.innerHTML = Math.round(fahreinhrightTemp);
     }
 
 function displayWeather(response){
     
     console.log(response)
     currentTemp = Math.round(response.data.main.temp);
+
+    //update global variable
+    celciusTemperature = response.data.main.temp
     // console.log(`${currentTemp}°C`);
     let temp = document.querySelector('#update-temp');
     temp.innerHTML = `${currentTemp}`;
+
+    
     let descriptionElement = document.querySelector('#description');
     descriptionElement.innerHTML = capitalizeEachWord(response.data.weather[0].description);
 
@@ -118,6 +140,8 @@ let monthofYear = [
   "December"
 ];
 
+
+let celciusTemperature = null
 //set current date
 //setDate();
 

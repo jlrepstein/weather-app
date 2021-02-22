@@ -1,5 +1,4 @@
 a {
-  color: #212121;
   text-decoration: none;
 }
 body {
@@ -31,6 +30,15 @@ ul {
   padding-left: 0px;
   display: inline;
   text-align: center;
+}
+
+.active {
+  color: #212121;
+  cursor: default;
+}
+
+.active :hover {
+  color: #212121;
 }
 
 .button-container {
